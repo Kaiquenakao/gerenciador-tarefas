@@ -3,6 +3,10 @@ import platform
 import psutil
 import time
 
+info = {}
+info['platform'] = platform.system()
+info['platform-release'] = platform.release()
+info['platform-version'] = platform.version()
 
 def interface():
     """Layout do gerenciador de tarefas"""
@@ -13,6 +17,9 @@ def interface():
             font=('Arial', 13, 'bold'),
             size=(100,1),
             justification='center')],
+        [sg.Text(
+            f"Sistema operacional: {info['platform']} {info['platform-release']} - {info['platform-version']}",
+        font=('Arial', 11))]
     ]
 
     return sg.Window(
