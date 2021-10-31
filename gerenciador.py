@@ -1,8 +1,7 @@
 import PySimpleGUI as sg
 import platform
 import socket
-import psutil
-import time
+
 
 info = dict()
 info['platform'] = platform.system()
@@ -11,6 +10,8 @@ info['platform-version'] = platform.version()
 info['architecture'] = platform.machine()
 info['hostname'] = socket.gethostname()
 info['processor'] = platform.processor()
+
+estilo = ('Arial', 11)
 
 def interface():
     """Layout do gerenciador de tarefas"""
@@ -25,9 +26,11 @@ def interface():
             f"Sistema operacional: {info['platform']} {info['platform-release']} - {info['platform-version']}",
         font=('Arial', 11))],
         [sg.Text(f"Arquitetura: {info['architecture']}",
-                 font=('Arial', 11))],
+                 font=estilo)],
         [sg.Text(f"Processador: {info['processor']}",
-                 font=('Arial', 11))]
+                 font=estilo)],
+        [sg.Text(f"Hostname: {info['hostname']}",
+                 font=estilo)]
     ]
     return sg.Window(
         "Gerenciador",
