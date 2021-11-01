@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import platform
 import socket
+import psutil
 
 
 info = dict()
@@ -10,6 +11,7 @@ info['platform-version'] = platform.version()
 info['architecture'] = platform.machine()
 info['hostname'] = socket.gethostname()
 info['processor'] = platform.processor()
+info['ram'] = str(round(psutil.virtual_memory().total / (1024.0 ** 3)))
 
 estilo = ('Arial', 11)
 
@@ -30,7 +32,9 @@ def interface():
         [sg.Text(f"Processador: {info['processor']}",
                  font=estilo)],
         [sg.Text(f"Hostname: {info['hostname']}",
-                 font=estilo)]
+                 font=estilo)],
+        [sg.Text(f"Memória RAM: {info['ram']} GB",
+                font=estilo)],
     ]
     return sg.Window(
         "Gerenciador",
