@@ -2,7 +2,12 @@ import PySimpleGUI as sg
 import platform
 import socket
 import psutil
+import wmi
 
+
+computer = wmi.WMI()
+proc_info = computer.Win32_Processor()[0]
+gpu_info = computer.Win32_VideoController()[0]
 
 info = dict()
 info['platform'] = platform.system()
@@ -10,8 +15,9 @@ info['platform-release'] = platform.release()
 info['platform-version'] = platform.version()
 info['architecture'] = platform.machine()
 info['hostname'] = socket.gethostname()
-info['processor'] = platform.processor()
+info['processor'] = proc_info.Name
 info['ram'] = str(round(psutil.virtual_memory().total / (1024.0 ** 3)))
+info['graphics-card'] = gpu_info.Name
 
 estilo = ('Arial', 11)
 
@@ -34,6 +40,8 @@ def interface():
         [sg.Text(f"Hostname: {info['hostname']}",
                  font=estilo)],
         [sg.Text(f"Memória RAM: {info['ram']} GB",
+                font=estilo)],
+        [sg.Text(f"Placa de Vídeo: {info['graphics-card']}",
                 font=estilo)],
     ]
     return sg.Window(
