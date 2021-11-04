@@ -1,9 +1,8 @@
-import PySimpleGUI as sg
 import platform
 import socket
 import psutil
 import wmi
-import time
+import PySimpleGUI as sg
 
 
 computer = wmi.WMI()
@@ -53,7 +52,7 @@ window =  sg.Window(
     "Gerenciador",
     layout=layout,
     finalize=True,
-    size=(500, 300),
+    size=(500, 250),
     grab_anywhere=True
 )
 
