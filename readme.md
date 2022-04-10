@@ -1,13 +1,13 @@
 ## Gerenciador de tarefas
 Projeto criado para o gerenciamento de tarefas, onde o mesmo exibe as configurações do computador. 
 ## Sistema 
-<center>
+<p align="center">
 <img src="https://i.imgur.com/iRp02ud.png" />
-</center>
+</p>
 
 ## Requerimentos
 1.  Ter o sistema operacional Windows 8.1 para cima;
-2. Instalar as bibliotecas que estão no arquivo "requeriment.txt" através do comando `pip install -r requirements.txt.
+2. Instalar as bibliotecas que estão no arquivo "requeriment.txt" através do comando `pip install -r requirements.txt`
 ## Contribuidores
 - [Kawan de Oliveira Nakao](https://github.com/Nakaoo)
 - [Kaique de Oliveira Nakao](https://github.com/Kaiquenakao)
